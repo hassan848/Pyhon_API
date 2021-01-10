@@ -1,7 +1,7 @@
 import paramiko
 import getpass
 
-host = input('Enter host IP')
+host = input('Enter host IP: ')
 port = 22
 username = input("Enter your remote account: ")
 password = getpass.getpass()
@@ -14,4 +14,4 @@ ssh.connect(host, port, username, password)
 
 stdin, stdout, stderr = ssh.exec_command(command)
 for l in stdout.readlines():
-print(l)
+	print(l)
