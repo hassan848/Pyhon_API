@@ -31,13 +31,16 @@ def ssh_connection(host, username, password):
 	startTime = datetime.now()
 
 	stdin, stdout, stderr = ssh.exec_command(command[0])
-	endTime = (datetime.now() - startTime)
+	#endTime = (datetime.now() - startTime)
+
 	for l in stdout.readlines():
 		print(l.strip()) #strip() will print the result without any line breaks
+	endTime = (datetime.now() - startTime)
 
 	sftp_client.close()
 	ssh.close()
 	print(f"The time to execute this task was: {endTime}")
+	print()
 
 print()
 worker1 = getWorkerInfo()
